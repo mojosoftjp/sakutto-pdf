@@ -33,13 +33,18 @@ a:hover{text-decoration:underline}
 .section-title{font-size:1.6rem;font-weight:700;text-align:center;margin-bottom:12px}
 .section-desc{text-align:center;color:var(--muted);margin-bottom:48px;font-size:1.05rem}
 
-/* Features */
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-.feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 20px;text-align:center;transition:transform .2s,box-shadow .2s}
-.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
-.feature-icon{font-size:2.2rem;margin-bottom:12px;display:block}
-.feature-card h3{font-size:1.05rem;margin-bottom:6px}
-.feature-card p{font-size:.88rem;color:var(--muted);line-height:1.5}
+/* Feature detail rows */
+.feature-row{display:flex;gap:40px;align-items:center;margin-bottom:56px;flex-wrap:wrap}
+.feature-row:last-child{margin-bottom:0}
+.feature-row.reverse{flex-direction:row-reverse}
+.feature-img{flex:1 1 55%;min-width:280px}
+.feature-img img{width:100%;border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,.10);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.feature-img img:hover{transform:scale(1.02);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+.feature-info{flex:1 1 35%;min-width:220px}
+.feature-info .feature-icon{font-size:2.2rem;margin-bottom:8px;display:block}
+.feature-info h3{font-size:1.25rem;margin-bottom:8px;font-weight:700}
+.feature-info p{font-size:.95rem;color:var(--muted);line-height:1.7}
+.feature-info .feature-tag{display:inline-block;background:#EFF6FF;color:var(--primary);font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px}
 
 /* Points */
 .points{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
@@ -65,12 +70,14 @@ footer .footer-links{margin-bottom:16px;display:flex;gap:24px;justify-content:ce
 footer .copyright{opacity:.7;margin-top:8px}
 
 /* Responsive */
-@media(max-width:600px){
+@media(max-width:700px){
   .hero h1{font-size:2rem}
   .hero .subtitle{font-size:1rem}
-  .features{grid-template-columns:repeat(2,1fr);gap:12px}
-  .feature-card{padding:20px 14px}
+  .feature-row,.feature-row.reverse{flex-direction:column}
+  .feature-img{min-width:100%}
+  .feature-info{min-width:100%;text-align:center}
   .section{padding:48px 0}
+  .feature-row{margin-bottom:40px}
 }
 </style>
 </head>
@@ -95,46 +102,107 @@ footer .copyright{opacity:.7;margin-top:8px}
   <div class="container">
     <h2 class="section-title">8つの機能、ぜんぶ入り</h2>
     <p class="section-desc">仕事で使うPDF操作を、このアプリひとつでカバーします。</p>
-    <div class="features">
-      <div class="feature-card">
+    <!-- 1: PDF結合 -->
+    <div class="feature-row">
+      <div class="feature-img">
+        <img src="ss1.png" alt="PDF結合の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">基本機能</span>
         <span class="feature-icon">📎</span>
         <h3>PDF結合</h3>
-        <p>複数のPDFを好きな順番でまとめて1つのファイルに。ドラッグ&amp;ドロップで並べ替え自由。</p>
+        <p>複数のPDFをドラッグ&amp;ドロップで追加し、好きな順番に並べ替えて1つのファイルに結合。会議資料や報告書のまとめに。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 2: PDF分割 -->
+    <div class="feature-row reverse">
+      <div class="feature-img">
+        <img src="ss2.png" alt="PDF分割の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">基本機能</span>
         <span class="feature-icon">✂️</span>
         <h3>PDF分割</h3>
-        <p>1ページずつ、または指定ページ範囲で分割。大きなPDFをサクッと分けられます。</p>
+        <p>全ページを個別ファイルに分割、またはページ範囲を指定して分割。大きなPDFを必要な単位でサクッと分けられます。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 3: ページ抜き出し -->
+    <div class="feature-row">
+      <div class="feature-img">
+        <img src="ss3.png" alt="ページ抜き出しの画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">基本機能</span>
         <span class="feature-icon">📄</span>
         <h3>ページ抜き出し</h3>
-        <p>必要なページだけを抜き出して新しいPDFに。「3,5,7-10」のような柔軟な指定が可能。</p>
+        <p>「1-5, 10, 15-20」のように必要なページだけを指定して、1つのPDFにまとめて抽出。柔軟な範囲指定に対応。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 4: テキスト抽出 -->
+    <div class="feature-row reverse">
+      <div class="feature-img">
+        <img src="ss4.png" alt="テキスト抽出の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">変換機能</span>
         <span class="feature-icon">📝</span>
         <h3>テキスト抽出</h3>
-        <p>PDFからテキストを一括抽出。コピペできないPDFも、テキストファイルとして保存。</p>
+        <p>PDFからテキストを一括抽出してテキストファイルに保存。全ページまたはページ範囲を指定可能。コピペできないPDFにも。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 5: 透かし -->
+    <div class="feature-row">
+      <div class="feature-img">
+        <img src="ss5.png" alt="透かし追加の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">編集機能</span>
         <span class="feature-icon">💧</span>
-        <h3>透かし</h3>
-        <p>「社外秘」「DRAFT」などのテキスト透かしを全ページに一括追加。色・サイズ・角度も自由。</p>
+        <h3>透かし（ウォーターマーク）</h3>
+        <p>「社外秘」「DRAFT」「CONFIDENTIAL」など、テキスト透かしを全ページに一括追加。文字サイズ・透明度・角度・色を自由にカスタマイズ。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 6: ページ番号 -->
+    <div class="feature-row reverse">
+      <div class="feature-img">
+        <img src="ss6.png" alt="ページ番号追加の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">編集機能</span>
         <span class="feature-icon">🔢</span>
         <h3>ページ番号</h3>
-        <p>ヘッダーやフッターにページ番号を自動追加。位置・書式を選んでワンクリック。</p>
+        <p>ヘッダーやフッターにページ番号を自動追加。位置（6箇所）・書式（「- 1 -」「1/10」など）・開始番号・文字サイズを選べます。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 7: ヘッダー/フッター -->
+    <div class="feature-row">
+      <div class="feature-img">
+        <img src="ss7.png" alt="ヘッダー/フッター追加の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">編集機能</span>
         <span class="feature-icon">📑</span>
         <h3>ヘッダー/フッター</h3>
-        <p>日付・ページ番号・任意テキストをヘッダー/フッターに追加。配置も左/中央/右から選択。</p>
+        <p>日付・ページ番号・総ページ数・任意テキストをヘッダーやフッターに自由に追加。配置も左/中央/右から選択できます。</p>
       </div>
-      <div class="feature-card">
+    </div>
+
+    <!-- 8: パスワード保護 -->
+    <div class="feature-row reverse">
+      <div class="feature-img">
+        <img src="ss8.png" alt="パスワード保護の画面" loading="lazy">
+      </div>
+      <div class="feature-info">
+        <span class="feature-tag">セキュリティ</span>
         <span class="feature-icon">🔒</span>
         <h3>パスワード保護</h3>
-        <p>PDFにパスワードを設定して機密文書を保護。既存パスワードの解除にも対応。</p>
+        <p>閲覧パスワード・編集パスワードを設定して機密文書を保護。印刷やコピーの許可/禁止も個別に設定可能。</p>
       </div>
     </div>
   </div>
