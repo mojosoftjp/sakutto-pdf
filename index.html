@@ -15,7 +15,9 @@ a:hover{text-decoration:underline}
 /* Hero */
 .hero{background:linear-gradient(135deg,#1E40AF 0%,#2563EB 50%,#3B82F6 100%);color:#fff;padding:80px 24px 64px;text-align:center;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%)}
-.hero h1{font-size:2.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.hero-title{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px}
+.hero-title img{width:64px;height:64px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+.hero h1{font-size:2.8rem;font-weight:800;letter-spacing:-.02em;margin:0}
 .hero .subtitle{font-size:1.15rem;opacity:.9;margin-bottom:32px;font-weight:400}
 .hero .tagline{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:6px 20px;font-size:.9rem;margin-bottom:28px;backdrop-filter:blur(4px)}
 .cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -86,7 +88,10 @@ footer .copyright{opacity:.7;margin-top:8px}
 <!-- Hero -->
 <header class="hero">
   <div class="tagline">Windows 用 PDF 効率化ツール</div>
-  <h1>さくっとPDF</h1>
+  <div class="hero-title">
+    <img src="logo.png" alt="さくっとPDF アイコン">
+    <h1>さくっとPDF</h1>
+  </div>
   <p class="subtitle">結合・分割・透かし・ページ番号・テキスト化<br>8つの機能をシンプルなひとつのアプリに。</p>
   <div class="cta-group">
     <a href="https://www.microsoft.com/store/apps/9PLHXDGRKBTT" class="btn btn-primary">
