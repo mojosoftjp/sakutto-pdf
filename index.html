@@ -1,109 +1,37 @@
 <!DOCTYPE html>
-<html lang="ja" class="lang-ja">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト</title>
-<meta name="description" content="PDFの結合・分割・ページ抽出・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護に対応。日常のPDF作業を8つの機能でまとめて処理するWindows用ソフト。Microsoft Storeで購入できます。">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#2563EB;--primary-dark:#1D4ED8;--accent:#F59E0B;--bg:#F8FAFC;--card:#FFFFFF;--text:#1E293B;--muted:#64748B;--border:#E2E8F0;--radius:12px}
-body{font-family:"Segoe UI","Meiryo","Hiragino Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
-a{color:var(--primary);text-decoration:none}
-a:hover{text-decoration:underline}
-
-/* Language toggle */
-.lang-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:rgba(255,255,255,.92);border:1px solid var(--border);border-radius:999px;padding:6px 16px;font-size:.85rem;font-weight:600;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.1);transition:background .2s}
-.lang-toggle:hover{background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.15)}
-[data-lang="ja"] .en,[data-lang="en"] .ja{display:none!important}
-
-/* Hero */
-.hero{background:linear-gradient(135deg,#1E40AF 0%,#2563EB 50%,#3B82F6 100%);color:#fff;padding:80px 24px 64px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%)}
-.hero-title{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px}
-.hero-title img{width:64px;height:64px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
-.hero h1{font-size:2.8rem;font-weight:800;letter-spacing:-.02em;margin:0}
-.hero .subtitle{font-size:1.15rem;opacity:.9;margin-bottom:32px;font-weight:400}
-.hero .tagline{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:6px 20px;font-size:.9rem;margin-bottom:28px;backdrop-filter:blur(4px)}
-.cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:999px;font-size:1rem;font-weight:600;transition:transform .15s,box-shadow .15s;cursor:pointer;border:none}
-.btn-primary{background:#fff;color:var(--primary)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18);text-decoration:none}
-.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
-.btn-outline:hover{background:rgba(255,255,255,.12);text-decoration:none}
-
-/* Container */
-.container{max-width:960px;margin:0 auto;padding:0 24px}
-
-/* Section */
-.section{padding:64px 0}
-.section-title{font-size:1.6rem;font-weight:700;text-align:center;margin-bottom:12px}
-.section-desc{text-align:center;color:var(--muted);margin-bottom:48px;font-size:1.05rem}
-
-/* Feature detail rows */
-.feature-row{display:flex;gap:40px;align-items:center;margin-bottom:56px;flex-wrap:wrap}
-.feature-row:last-child{margin-bottom:0}
-.feature-row.reverse{flex-direction:row-reverse}
-.feature-img{flex:1 1 55%;min-width:280px}
-.feature-img img{width:100%;border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,.10);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
-.feature-img img:hover{transform:scale(1.02);box-shadow:0 12px 40px rgba(0,0,0,.15)}
-.feature-info{flex:1 1 35%;min-width:220px}
-.feature-info .feature-icon{font-size:2.2rem;margin-bottom:8px;display:block}
-.feature-info h3{font-size:1.25rem;margin-bottom:8px;font-weight:700}
-.feature-info p{font-size:.95rem;color:var(--muted);line-height:1.7}
-.feature-info .feature-tag{display:inline-block;background:#EFF6FF;color:var(--primary);font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px}
-
-/* Points */
-.points{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
-.point{display:flex;gap:16px;align-items:flex-start}
-.point-icon{flex-shrink:0;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#DBEAFE,#EFF6FF);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
-.point h3{font-size:1rem;margin-bottom:4px}
-.point p{font-size:.9rem;color:var(--muted)}
-
-/* How to use */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;counter-reset:step}
-.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;position:relative}
-.step::before{counter-increment:step;content:counter(step);position:absolute;top:-14px;left:20px;width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center}
-.step h3{margin-top:8px;font-size:1rem;margin-bottom:6px}
-.step p{font-size:.9rem;color:var(--muted)}
-
-/* Footer */
-footer{background:#1E293B;color:#CBD5E1;padding:40px 24px;text-align:center;font-size:.88rem}
-footer a{color:#93C5FD}
-footer .footer-links{margin-bottom:16px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
-footer .copyright{opacity:.7;margin-top:8px}
-
-/* Responsive */
-@media(max-width:700px){
-  .hero h1{font-size:2rem}
-  .hero .subtitle{font-size:1rem}
-  .feature-row,.feature-row.reverse{flex-direction:column}
-  .feature-img{min-width:100%}
-  .feature-info{min-width:100%;text-align:center}
-  .section{padding:48px 0}
-  .feature-row{margin-bottom:40px}
-}
-</style>
-  <link rel="canonical" href="https://mojosoftjp.github.io/sakutto-pdf/">
-  <link rel="alternate" href="https://mojosoftjp.github.io/sakutto-pdf/" hreflang="ja">
-  <link rel="alternate" href="https://mojosoftjp.github.io/sakutto-pdf/en/" hreflang="en">
-  <link rel="alternate" href="https://mojosoftjp.github.io/sakutto-pdf/" hreflang="x-default">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta property="og:title" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
-  <meta property="og:description" content="PDFの結合・分割・ページ抽出・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護に対応。日常のPDF作業を8つの機能でまとめて処理するWindows用ソフト。Microsoft Storeで購入できます。">
-  <meta property="og:url" content="https://mojosoftjp.github.io/sakutto-pdf/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Mojosoft">
-  <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:title" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
-  <meta name="twitter:description" content="PDFの結合・分割・ページ抽出・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護に対応。日常のPDF作業を8つの機能でまとめて処理するWindows用ソフト。Microsoft Storeで購入できます。">
-  <meta property="og:image" content="https://mojosoftjp.github.io/sakutto-pdf/ss1.png">
-  <meta name="twitter:image" content="https://mojosoftjp.github.io/sakutto-pdf/ss1.png">
-  <meta property="og:image:alt" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
-  <meta name="twitter:image:alt" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
-  <meta property="og:image:width" content="1505">
-  <meta property="og:image:height" content="974">
-  <meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="PDFの結合・分割・ページの抜き出し・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護、PDFと画像の変換に対応したWindows用ソフト。日常のPDF作業を9つの機能でまとめて処理。処理はすべてPCの中で行います。">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://mojosoftjp.github.io/sakutto-pdf/">
+<link rel="alternate" href="https://mojosoftjp.github.io/sakutto-pdf/" hreflang="ja">
+<link rel="alternate" href="https://mojosoftjp.github.io/sakutto-pdf/en/" hreflang="en">
+<link rel="alternate" href="https://mojosoftjp.github.io/sakutto-pdf/" hreflang="x-default">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
+<meta property="og:description" content="PDFの結合・分割・ページの抜き出し・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護、PDFと画像の変換に対応したWindows用ソフト。日常のPDF作業を9つの機能でまとめて処理。処理はすべてPCの中で行います。">
+<meta property="og:url" content="https://mojosoftjp.github.io/sakutto-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mojosoft">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
+<meta name="twitter:description" content="PDFの結合・分割・ページの抜き出し・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護、PDFと画像の変換に対応したWindows用ソフト。日常のPDF作業を9つの機能でまとめて処理。処理はすべてPCの中で行います。">
+<meta property="og:image" content="https://mojosoftjp.github.io/sakutto-pdf/ss1.png">
+<meta name="twitter:image" content="https://mojosoftjp.github.io/sakutto-pdf/ss1.png">
+<meta property="og:image:alt" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
+<meta name="twitter:image:alt" content="さくっとPDF｜PDF結合・分割・透かし・ページ番号のWindowsソフト">
+<meta property="og:image:width" content="1505">
+<meta property="og:image:height" content="974">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -114,7 +42,7 @@ footer .copyright{opacity:.7;margin-top:8px}
       "name": "さくっとPDF",
       "alternateName": "Sakutto PDF",
       "url": "https://mojosoftjp.github.io/sakutto-pdf/",
-      "description": "PDFの結合・分割・ページ抽出・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護に対応。日常のPDF作業を8つの機能でまとめて処理するWindows用ソフト。Microsoft Storeで購入できます。",
+      "description": "PDFの結合・分割・ページの抜き出し・テキスト抽出・透かし・ページ番号・ヘッダーフッター・パスワード保護、PDFと画像の変換に対応したWindows用ソフト。日常のPDF作業を9つの機能でまとめて処理。処理はすべてPCの中で行います。",
       "image": "https://mojosoftjp.github.io/sakutto-pdf/ss1.png",
       "operatingSystem": "Windows",
       "applicationCategory": "UtilitiesApplication",
@@ -164,276 +92,169 @@ footer .copyright{opacity:.7;margin-top:8px}
 }
 </script>
 </head>
-<body data-lang="ja">
+<body>
 
-<!-- Mojosoft Header -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06);height:44px;display:flex;align-items:center;padding:0 24px;">
-  <a href="https://mojosoft.biz/" style="font-size:18px;font-weight:700;color:#1D1D1F;text-decoration:none;font-family:'Noto Sans JP',sans-serif;">Mojosoft</a>
-</nav>
-<div style="height:44px;"></div>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./"><img src="logo-96.png" alt="" width="30" height="30">さくっとPDF</a>
+  <nav class="site-nav" aria-label="ページ内">
+    <a href="#how">使い方</a><a href="#features">できること</a><a href="#formats">対応形式</a><a href="#faq">よくある質問</a><a href="#support">サポート</a>
+  </nav>
+  <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
+  <a class="btn btn-main btn-sm" href="https://apps.microsoft.com/detail/9P1GW699TK0N?cid=lp-index">Store で入手</a>
+</div></header>
 
-<!-- Language toggle -->
-<button class="lang-toggle" onclick="toggleLang()">
-  <span class="ja">EN</span>
-  <span class="en">日本語</span>
-</button>
+<main>
+<div class="hero"><div class="wrap">
+  <h1><span class="eyebrow">さくっとPDF ― Windows 用</span>PDF の「ちょっと」を、<span class="nb"><b>9 つの道具</b>で。</span></h1>
+  <p class="lede">結合・分割・ページの抜き出し、透かし・ページ番号・ヘッダー、パスワード、画像との変換まで。ブラウザにアップロードせず、PC の中だけで処理します。</p>
 
-<!-- Hero -->
-<header class="hero">
-  <div class="ja"><div class="tagline">Windows 用 PDF 効率化ツール</div></div>
-  <div class="en"><div class="tagline">All-in-One PDF Tool for Windows</div></div>
-  <div class="hero-title">
-    <img src="logo.png" alt="Sakutto PDF icon">
-    <h1><span class="ja">さくっとPDF</span><span class="en">Sakutto PDF</span></h1>
-  </div>
-  <p class="subtitle">
-    <span class="ja">結合・分割・透かし・ページ番号・テキスト化<br>8つの機能をシンプルなひとつのアプリに。</span>
-    <span class="en">Merge, Split, Watermark, Page Numbers &amp; More<br>8 powerful features in one simple app.</span>
-  </p>
-  <div class="cta-group">
-    <a href="https://apps.microsoft.com/detail/9P1GW699TK0N" class="btn btn-primary">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-      <span class="ja">Microsoft Store で入手</span><span class="en">Get on Microsoft Store</span>
-    </a>
-    <a href="#features" class="btn btn-outline">
-      <span class="ja">機能を見る</span><span class="en">View Features</span>
-    </a>
-  </div>
-</header>
-
-<!-- Features -->
-<section id="features" class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="ja">8つの機能、ぜんぶ入り</span><span class="en">8 Features, All Included</span></h2>
-    <p class="section-desc"><span class="ja">仕事で使うPDF操作を、このアプリひとつでカバーします。</span><span class="en">One app covers all the PDF tasks you need at work.</span></p>
-
-    <!-- 1: Merge -->
-    <div class="feature-row">
-      <div class="feature-img">
-        <img class="ja" src="ss1.png" alt="PDF結合の画面" loading="lazy">
-        <img class="en" src="en1.png" alt="PDF Merge" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">基本機能</span><span class="feature-tag en">Basic</span>
-        <span class="feature-icon">📚</span>
-        <h3><span class="ja">PDF結合</span><span class="en">Merge PDF</span></h3>
-        <p><span class="ja">複数のPDFをドラッグ&amp;ドロップで追加し、好きな順番に並べ替えて1つのファイルに結合。会議資料や報告書のまとめに。</span><span class="en">Add multiple PDFs via drag &amp; drop, reorder them freely, and merge into a single file. Perfect for meeting materials and reports.</span></p>
-      </div>
-    </div>
-
-    <!-- 2: Split -->
-    <div class="feature-row reverse">
-      <div class="feature-img">
-        <img class="ja" src="ss2.png" alt="PDF分割の画面" loading="lazy">
-        <img class="en" src="en2.png" alt="PDF Split" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">基本機能</span><span class="feature-tag en">Basic</span>
-        <span class="feature-icon">✂️</span>
-        <h3><span class="ja">PDF分割</span><span class="en">Split PDF</span></h3>
-        <p><span class="ja">全ページを個別ファイルに分割、またはページ範囲を指定して分割。大きなPDFを必要な単位でサクッと分けられます。</span><span class="en">Split all pages into individual files, or specify page ranges. Quickly break large PDFs into manageable parts.</span></p>
-      </div>
-    </div>
-
-    <!-- 3: Extract Pages -->
-    <div class="feature-row">
-      <div class="feature-img">
-        <img class="ja" src="ss3.png" alt="ページ抜き出しの画面" loading="lazy">
-        <img class="en" src="en3.png" alt="Extract Pages" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">基本機能</span><span class="feature-tag en">Basic</span>
-        <span class="feature-icon">📄</span>
-        <h3><span class="ja">ページ抜き出し</span><span class="en">Extract Pages</span></h3>
-        <p><span class="ja">「1-5, 10, 15-20」のように必要なページだけを指定して、1つのPDFにまとめて抽出。柔軟な範囲指定に対応。</span><span class="en">Specify pages like "1-5, 10, 15-20" and extract only the ones you need into a single PDF. Flexible range support.</span></p>
-      </div>
-    </div>
-
-    <!-- 4: Extract Text -->
-    <div class="feature-row reverse">
-      <div class="feature-img">
-        <img class="ja" src="ss4.png" alt="テキスト抽出の画面" loading="lazy">
-        <img class="en" src="en4.png" alt="Extract Text" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">変換機能</span><span class="feature-tag en">Convert</span>
-        <span class="feature-icon">📝</span>
-        <h3><span class="ja">テキスト抽出</span><span class="en">Extract Text</span></h3>
-        <p><span class="ja">PDFからテキストを一括抽出してテキストファイルに保存。全ページまたはページ範囲を指定可能。コピペできないPDFにも。</span><span class="en">Extract text from PDFs and save as a text file. Specify all pages or a custom range. Works even on non-selectable PDFs.</span></p>
-      </div>
-    </div>
-
-    <!-- 5: Watermark -->
-    <div class="feature-row">
-      <div class="feature-img">
-        <img class="ja" src="ss5.png" alt="透かし追加の画面" loading="lazy">
-        <img class="en" src="en5.png" alt="Watermark" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">編集機能</span><span class="feature-tag en">Edit</span>
-        <span class="feature-icon">💧</span>
-        <h3><span class="ja">透かし（ウォーターマーク）</span><span class="en">Watermark</span></h3>
-        <p><span class="ja">「社外秘」「DRAFT」「CONFIDENTIAL」など、テキスト透かしを全ページに一括追加。文字サイズ・透明度・角度・色を自由にカスタマイズ。</span><span class="en">Add text watermarks like "DRAFT" or "CONFIDENTIAL" to all pages at once. Customize font size, opacity, angle, and color.</span></p>
-      </div>
-    </div>
-
-    <!-- 6: Page Numbers -->
-    <div class="feature-row reverse">
-      <div class="feature-img">
-        <img class="ja" src="ss6.png" alt="ページ番号追加の画面" loading="lazy">
-        <img class="en" src="en6.png" alt="Page Numbers" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">編集機能</span><span class="feature-tag en">Edit</span>
-        <span class="feature-icon">🔢</span>
-        <h3><span class="ja">ページ番号</span><span class="en">Page Numbers</span></h3>
-        <p><span class="ja">ヘッダーやフッターにページ番号を自動追加。位置（6箇所）・書式（「- 1 -」「1/10」など）・開始番号・文字サイズを選べます。</span><span class="en">Automatically add page numbers to headers or footers. Choose position (6 options), format ("- 1 -", "1/10", etc.), start number, and font size.</span></p>
-      </div>
-    </div>
-
-    <!-- 7: Header/Footer -->
-    <div class="feature-row">
-      <div class="feature-img">
-        <img class="ja" src="ss7.png" alt="ヘッダー/フッターの画面" loading="lazy">
-        <img class="en" src="en7.png" alt="Header/Footer" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">編集機能</span><span class="feature-tag en">Edit</span>
-        <span class="feature-icon">📑</span>
-        <h3><span class="ja">ヘッダー/フッター</span><span class="en">Header / Footer</span></h3>
-        <p><span class="ja">日付・ページ番号・総ページ数・任意テキストをヘッダーやフッターに自由に追加。配置も左/中央/右から選択できます。</span><span class="en">Add dates, page numbers, total pages, or custom text to headers and footers. Align left, center, or right.</span></p>
-      </div>
-    </div>
-
-    <!-- 8: Password -->
-    <div class="feature-row reverse">
-      <div class="feature-img">
-        <img class="ja" src="ss8.png" alt="パスワード保護の画面" loading="lazy">
-        <img class="en" src="en8.png" alt="Password Protection" loading="lazy">
-      </div>
-      <div class="feature-info">
-        <span class="feature-tag ja">セキュリティ</span><span class="feature-tag en">Security</span>
-        <span class="feature-icon">🔒</span>
-        <h3><span class="ja">パスワード保護</span><span class="en">Password Protection</span></h3>
-        <p><span class="ja">閲覧パスワード・編集パスワードを設定して機密文書を保護。印刷やコピーの許可/禁止も個別に設定可能。</span><span class="en">Set open and edit passwords to protect sensitive documents. Control printing and copying permissions individually.</span></p>
-      </div>
+  <div class="result">
+    <figure class="result-shot pages">
+      <div class="pair-item"><span class="pair-label">処理前</span><div class="paper"><img src="pdf_ja_before.png" alt="処理前の見積書（サンプル）の 1 ページ目" width="600" height="849"></div></div>
+      <div class="pair-item after"><span class="pair-label">処理後</span><div class="paper"><img src="pdf_ja_after.png" alt="処理後の 1 ページ目。赤い「社外秘」の透かしが斜めに入り、下に「1 / 3」のページ番号が付いている" width="600" height="849"></div></div>
+      <figcaption>さくっとPDF で処理した PDF の 1 ページ目（ページを画像にして表示）</figcaption>
+    </figure>
+    <div class="nums">
+      <h2 id="h-demo">見積書に「社外秘」の透かしとページ番号を</h2>
+      <p class="nums-src">2 枚は、同じ PDF の処理前と処理後です。全 3 ページに同じように入ります。</p>
+      <ol class="nums-steps"><li>「透かし」で文字・色・大きさを選んで保存</li><li>「ページ番号」で書式（1 / N）を選んで保存</li></ol>
+      <p class="nums-note">サンプルの見積書（3 ページ・社名と金額は架空）を、さくっとPDF（v1.1.0）で処理しました。透かしは「社外秘」・赤・文字サイズ 110・透明度 40%・角度 −45°。アプリの画面は、下の「使い方」にあります。</p>
     </div>
   </div>
-</section>
 
-<!-- Why -->
-<section class="section" style="background:#fff">
-  <div class="container">
-    <h2 class="section-title"><span class="ja">選ばれる理由</span><span class="en">Why Choose Sakutto PDF</span></h2>
-    <p class="section-desc"><span class="ja">日常のPDF作業を、もっとシンプルに。</span><span class="en">Make your daily PDF tasks simpler.</span></p>
-    <div class="points">
-      <div class="point">
-        <div class="point-icon">⚡</div>
-        <div>
-          <h3><span class="ja">すぐ使える</span><span class="en">Ready to Use</span></h3>
-          <p><span class="ja">インストールしたらすぐ起動。アカウント登録もログインも不要です。</span><span class="en">Launch right after install. No account signup or login required.</span></p>
-        </div>
-      </div>
-      <div class="point">
-        <div class="point-icon">🖱️</div>
-        <div>
-          <h3><span class="ja">ドラッグ&amp;ドロップ</span><span class="en">Drag &amp; Drop</span></h3>
-          <p><span class="ja">ファイルをドラッグ&amp;ドロップするだけ。直感的に使えるシンプルなUI。</span><span class="en">Just drag and drop your files. An intuitive, simple interface.</span></p>
-        </div>
-      </div>
-      <div class="point">
-        <div class="point-icon">🌐</div>
-        <div>
-          <h3><span class="ja">日本語/英語対応</span><span class="en">Japanese / English</span></h3>
-          <p><span class="ja">OSの言語設定に合わせて自動で切り替わります。海外のチームとも共有OK。</span><span class="en">Automatically switches based on your OS language. Share with international teams.</span></p>
-        </div>
-      </div>
-      <div class="point">
-        <div class="point-icon">🔐</div>
-        <div>
-          <h3><span class="ja">完全オフライン</span><span class="en">Fully Offline</span></h3>
-          <p><span class="ja">すべての処理はPC上で完結。ファイルが外部に送信されることはありません。</span><span class="en">All processing stays on your PC. Your files are never sent to any server.</span></p>
-        </div>
-      </div>
-      <div class="point">
-        <div class="point-icon">💰</div>
-        <div>
-          <h3><span class="ja">買い切り</span><span class="en">One-Time Purchase</span></h3>
-          <p><span class="ja">月額課金なし。一度購入すればずっと使えます。</span><span class="en">No subscription fees. Buy once, use forever.</span></p>
-        </div>
-      </div>
-      <div class="point">
-        <div class="point-icon">🪶</div>
-        <div>
-          <h3><span class="ja">軽量&amp;高速</span><span class="en">Lightweight &amp; Fast</span></h3>
-          <p><span class="ja">100ページ超のPDFもサクサク処理。進捗バーでリアルタイムに確認。</span><span class="en">Handles 100+ page PDFs smoothly. Real-time progress bar included.</span></p>
-        </div>
-      </div>
+  <div class="ticket">
+    <div class="l"><b>いつもの PDF の作業を、ひとつのアプリで。</b><p>Microsoft Store から購入して、すぐに使えます。アプリのアカウント登録はいりません。</p></div>
+    <div class="r">
+      <a class="btn btn-main" href="https://apps.microsoft.com/detail/9P1GW699TK0N?cid=lp-index">Microsoft Store で入手</a>
+      <a class="btn btn-line" href="#features">できることを見る</a>
     </div>
   </div>
-</section>
-
-<!-- How to use -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="ja">使い方はかんたん 3ステップ</span><span class="en">Easy 3-Step Workflow</span></h2>
-    <p class="section-desc"><span class="ja">PDF操作がこんなにラクになります。</span><span class="en">PDF tasks have never been this easy.</span></p>
-    <div class="steps">
-      <div class="step">
-        <h3><span class="ja">タブを選ぶ</span><span class="en">Choose a Tab</span></h3>
-        <p><span class="ja">結合・分割・透かしなど、やりたい操作のタブをクリック。</span><span class="en">Click the tab for the operation you want: merge, split, watermark, etc.</span></p>
-      </div>
-      <div class="step">
-        <h3><span class="ja">ファイルを入れる</span><span class="en">Add Your Files</span></h3>
-        <p><span class="ja">PDFファイルをドラッグ&amp;ドロップ、またはボタンで選択。</span><span class="en">Drag &amp; drop PDF files, or select them with the file picker.</span></p>
-      </div>
-      <div class="step">
-        <h3><span class="ja">実行！</span><span class="en">Execute!</span></h3>
-        <p><span class="ja">ボタンをクリックするだけ。処理結果はすぐに保存されます。</span><span class="en">Click the button and you're done. Results are saved instantly.</span></p>
-      </div>
-    </div>
+  <div class="assure">
+    <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>買い切り・月額なし</span>
+    <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>処理はすべて PC の中で</span>
+    <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>日本語の透かし・ヘッダーにも対応</span>
+    <span><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>保存の名前と場所は毎回選べる</span>
   </div>
-</section>
+</div></div>
 
-<!-- Support -->
-<section id="support" class="section" style="background:#fff">
-  <div class="container">
-    <h2 class="section-title"><span class="ja">サポート</span><span class="en">Support</span></h2>
-    <p class="section-desc"><span class="ja">お困りの際はお気軽にお問い合わせください。</span><span class="en">Feel free to contact us if you need help.</span></p>
-    <div style="max-width:560px;margin:0 auto;text-align:center">
-      <p style="margin-bottom:16px">
-        <strong><span class="ja">不具合の報告・機能のリクエスト</span><span class="en">Bug Reports &amp; Feature Requests</span></strong><br>
-        <span class="ja"><a href="https://github.com/mojosoftjp/sakutto-pdf/issues">GitHub Issues</a> からご報告いただけます。</span>
-        <span class="en">Report via <a href="https://github.com/mojosoftjp/sakutto-pdf/issues">GitHub Issues</a>.</span>
-      </p>
-      <p style="margin-bottom:16px">
-        <strong><span class="ja">お問い合わせ</span><span class="en">Contact</span></strong><br>
-        Email: <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a>
-      </p>
-      <p style="color:var(--muted);font-size:.9rem;margin-top:32px">
-        <a href="privacy.html"><span class="ja">プライバシーポリシー</span><span class="en">Privacy Policy</span></a>
-      </p>
-    </div>
+<section id="how"><div class="wrap">
+  <h2 class="h2 center">使い方は、3 つの操作だけ。</h2>
+  <div class="row">
+    <div class="txt"><p class="verb"><small>まず</small>PDF を入れる</p><p>やりたいことのタブを選んで、PDF をドラッグ＆ドロップ。結合なら何本でも入れて、上へ・下へで順番を並べ替えられます。</p></div>
+    <div class="frame"><img src="ss1.png" alt="複数の PDF を結合のリストに入れた画面" width="1505" height="974" loading="lazy"></div>
   </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="footer-links">
-    <a href="#features"><span class="ja">機能</span><span class="en">Features</span></a>
-    <a href="#support"><span class="ja">サポート</span><span class="en">Support</span></a>
-    <a href="privacy.html"><span class="ja">プライバシーポリシー</span><span class="en">Privacy Policy</span></a>
-    <a href="https://github.com/mojosoftjp/sakutto-pdf">GitHub</a>
+  <div class="row">
+    <div class="txt"><p class="verb"><small>つぎに</small>仕上がりを選ぶ</p><p>透かしの文字・色・大きさ・角度、ページ番号の位置と書式、分ける範囲などを選びます。透かしやヘッダーには日本語も使えます。</p></div>
+    <div class="frame"><img src="pdf_ja_wm.png" alt="透かしのタブで「社外秘」・赤・文字サイズ 110 を選び、3 ページに追加した画面" width="1505" height="974" loading="lazy"></div>
   </div>
-  <div class="copyright">&copy; 2026 Mojosoft. All rights reserved.</div>
-</footer>
+  <div class="row">
+    <div class="txt"><p class="verb"><small>あとは</small>保存する</p><p>保存する名前と場所を選べば完了です。初めは「_watermark」「_numbered」などを付けた名前が入っているので、元の PDF とは別に保存できます。</p></div>
+    <div class="frame"><img src="pdf_ja_pn.png" alt="ページ番号のタブで書式「1 / N」を選び、3 ページに追加した画面" width="1505" height="974" loading="lazy"></div>
+  </div>
+</div></section>
 
-<script>
-function setLang(lang) {
-  if (lang !== "ja") window.location.assign("https://mojosoftjp.github.io/sakutto-pdf/en/" + window.location.hash);
-}
-function toggleLang() { setLang("en"); }
-</script>
+<section id="features" class="soft"><div class="wrap">
+  <div class="center"><h2 class="h2">PDF の「ちょっと直したい」を、ひとつのアプリで。</h2><p class="sub">よく使う 9 つの作業を、タブを切り替えるだけで。</p></div>
+  <div class="features three">
+    <div class="feature"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="11" width="8" height="10" rx="1"/><path d="M11 8h4v3"/></svg><h3>結合・分割・抜き出し</h3><p>まとめる、分ける、必要なページだけ取り出す。</p><ul><li>結合: 何本でも、順番を並べ替えて 1 つに</li><li>分割: 全ページを 1 ページずつ、またはページ範囲ごとに</li><li>抜き出し: 「1-5, 10」のように指定したページを 1 つの PDF に</li></ul></div>
+    <div class="feature"><svg viewBox="0 0 24 24"><path d="M4 20L20 4"/><path d="M6 4h12v16H6z" opacity=".35"/></svg><h3>透かし</h3><p>「社外秘」などの文字を、全ページに入れます。</p><ul><li>文字・大きさ・透明度・角度を指定</li><li>色はグレー・赤・青</li><li>日本語の文字も使える</li></ul></div>
+    <div class="feature"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h6M10 17h4"/></svg><h3>ページ番号・ヘッダー/フッター</h3><p>番号や日付、書類名を、全ページに入れます。</p><ul><li>ページ番号の位置（上下 × 左・中央・右）と書式（1・1 / N・- 1 -・ページ 1）</li><li>ヘッダー・フッターに [page]・[pages]・[date] を差し込み</li><li>開始番号と文字の大きさ</li></ul></div>
+    <div class="feature"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><h3>パスワード</h3><p>開くときのパスワードと、編集のパスワードを設定します。</p><ul><li>閲覧パスワード・編集パスワード</li><li>印刷・コピーを許可するかを選べる</li><li>128 ビットの暗号化</li></ul></div>
+    <div class="feature"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 15l-5-5-8 8"/></svg><h3>画像 ↔ PDF</h3><p>ページを画像に、画像を PDF にします。</p><ul><li>PDF → 画像: PNG・JPEG、72・150・300 dpi、ページを指定</li><li>画像 → PDF: 何枚でも 1 つに（画像のサイズのまま・A4 縦・A4 横）</li><li>PNG・JPEG・BMP・GIF・TIFF を読み込める</li></ul></div>
+    <div class="feature"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><h3>テキスト抽出</h3><p>PDF の文字を、テキストファイルに書き出します。</p><ul><li>全ページ、またはページ範囲を指定</li><li>ページごとに見出しを付けて保存</li></ul></div>
+  </div>
+</div></section>
 
+<section id="use-cases"><div class="wrap">
+  <div class="center"><h2 class="h2">利用シーン</h2><p class="sub">お手元の PDF を、渡しやすい形に整えます。</p></div>
+  <div class="cases">
+    <div class="case"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div><h3>社外に出す書類に「社外秘」とパスワードを</h3><p>透かしで扱いを示し、パスワードで開ける人を限れます。ファイルをどこにもアップロードせずに済みます。</p></div></div>
+    <div class="case"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="11" width="8" height="10" rx="1"/><path d="M11 8h4v3"/></svg></div><div><h3>資料をまとめて、ページ番号を振る</h3><p>何本もの PDF を 1 つに結合して、「1 / N」のページ番号を付けられます。会議資料や提出書類に。</p></div></div>
+    <div class="case"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 15l-5-5-8 8"/></svg></div><div><h3>スマホで撮った書類の写真を 1 つの PDF に</h3><p>何枚もの写真を A4 のページに収めて、1 つの PDF にまとめられます。</p></div></div>
+    <div class="case"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><div><h3>分厚い PDF から必要なページだけ</h3><p>「1-5, 10」のように指定して抜き出したり、ページごとに分けたりできます。</p></div></div>
+  </div>
+</div></section>
+
+<section id="data-flow" class="soft"><div class="wrap">
+  <div class="center"><h2 class="h2">PDF は、PC の外に出ません</h2><p class="sub">ブラウザで使う変換サイトと違い、PDF をどこかにアップロードすることはありません。</p></div>
+  <div class="flow">
+    <div class="pc"><h3>PC の中で終わる処理</h3><ul><li>PDF と画像の読み込み</li><li>結合・分割・透かし・ページ番号・パスワードなど、9 つの処理すべて</li><li>新しいファイルとしての保存</li></ul></div>
+    <div class="net"><h3>インターネットを使う場面</h3><ul><li>PDF の処理では使いません</li><li>Microsoft Store のページが開くのは、レビューのお願いで「はい」を選んだときだけです</li></ul></div>
+  </div>
+  <p class="flow-note center">開発元（Mojosoft）に PDF やファイル名が送られることはありません。アカウント登録も、利用状況の収集もありません。詳しくは <a href="privacy.html">プライバシーポリシー</a> をご覧ください。</p>
+</div></section>
+
+<section id="formats"><div class="wrap">
+  <div class="center"><h2 class="h2">対応形式</h2></div>
+  <table class="spec">
+    <tr><th scope="row">読み込めるファイル</th><td><span>PDF</span><br>画像 → PDF: <span>PNG</span><span>JPEG</span><span>BMP</span><span>GIF</span><span>TIFF</span><small>テキスト抽出は、文字の情報を持つ PDF が対象です（スキャンした画像だけの PDF からは文字を取り出せません）。</small></td></tr>
+    <tr><th scope="row">書き出せる形式</th><td>PDF（結合・分割・抜き出し・透かし・ページ番号・ヘッダー/フッター・パスワード・画像 → PDF）<br>テキスト（.txt）<br>画像: PNG・JPEG（72・150・300 dpi）</td></tr>
+    <tr><th scope="row">保存先と名前</th><td>保存するたびに名前と場所を選べます（初めは「_watermark」「_numbered」などを付けた名前）。分割と画像の書き出しは、選んだフォルダにまとめて保存します。</td></tr>
+    <tr><th scope="row">表示言語</th><td>日本語・英語（Windows の言語設定に合わせて切り替わります）</td></tr>
+    <tr><th scope="row">動作環境</th><td>Windows 10（バージョン 2004）以降・64 ビット</td></tr>
+  </table>
+</div></section>
+
+<section id="faq" class="soft"><div class="wrap">
+  <h2 class="h2 center">よくある質問（FAQ）</h2>
+  <div class="faq">
+    <details open><summary>透かしやヘッダーに日本語を使えますか？</summary><p>はい。「社外秘」などの日本語を、透かし・ヘッダー・フッター・ページ番号に使えます。日本語のフォントをアプリに内蔵しています。</p></details>
+    <details><summary>何本もの PDF を 1 つにまとめられますか？</summary><p>はい。「PDF 結合」に入れて、上へ・下へで順番を並べ替えてから保存します。</p></details>
+    <details><summary>必要なページだけを取り出せますか？</summary><p>はい。「PDF 抜き出し」で「1-5, 10, 15-20」のようにページを指定すると、1 つの PDF にまとめて保存します。</p></details>
+    <details><summary>PDF にパスワードをかけられますか？</summary><p>はい。開くときの「閲覧パスワード」と、編集用の「編集パスワード」を設定でき、印刷やコピーを許可するかも選べます。</p></details>
+    <details><summary>PDF のページを画像にできますか？</summary><p>はい。「画像 ↔ PDF」で、PNG または JPEG に書き出せます。解像度は 72・150・300 dpi から選べます。</p></details>
+    <details><summary>スマホで撮った写真を、1 つの PDF にまとめられますか？</summary><p>はい。「画像 ↔ PDF」の「画像 → PDF」に入れて、ページを「A4 縦」などにすると、各写真を A4 のページの中央に収めた PDF になります。</p></details>
+    <details><summary>インターネットにつながっていなくても使えますか？</summary><p>はい。PDF の処理は、すべて PC の中で行います。</p></details>
+    <details><summary>料金は買い切りですか？</summary><p>はい。Microsoft Store で一度購入すれば、月額料金なしで使い続けられます。</p></details>
+  </div>
+</div></section>
+
+<section id="changelog"><div class="wrap">
+  <div class="center"><h2 class="h2">更新履歴</h2><p class="sub">Microsoft Store 版は自動で最新版に更新されます。</p></div>
+  <div class="log">
+    <article>
+      <h3>v1.1.0</h3><time datetime="2026-09-07">2026年9月7日</time>
+      <ul>
+        <li>「画像 ↔ PDF」タブを追加しました</li>
+        <li>PDF → 画像: 各ページを PNG / JPEG で書き出し（72 / 150 / 300 dpi、ページ範囲指定）</li>
+        <li>画像 → PDF: 複数の画像を 1 つの PDF にまとめる（画像サイズのまま / A4 縦 / A4 横）</li>
+      </ul>
+    </article>
+    <article>
+      <h3>v1.0.0</h3><time datetime="2026-03-10">2026年3月10日</time>
+      <ul><li>Microsoft Store で公開しました（結合・分割・抜き出し・テキスト抽出・透かし・ページ番号・ヘッダー/フッター・パスワード）</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="support" class="soft"><div class="wrap">
+  <h2 class="h2 center">サポート</h2>
+  <div class="support">
+    <p><b>不具合の報告・機能のリクエスト</b><br><a href="https://github.com/mojosoftjp/sakutto-pdf/issues">GitHub Issues</a> からご報告いただけます。</p>
+    <p><b>お問い合わせ</b><br>Email: <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a></p>
+    <p><a href="privacy.html">プライバシーポリシー</a></p>
+  </div>
+</div></section>
+</main>
+
+<div class="band final on-dark"><div class="wrap">
+  <h2 class="h2">次は、あなたの PDF の番です。</h2>
+  <p>タブを選んで、ドラッグ＆ドロップするだけ。</p>
+  <div class="btns">
+    <a class="btn btn-main" href="https://apps.microsoft.com/detail/9P1GW699TK0N?cid=lp-index">Microsoft Store で入手</a>
+  </div>
+</div></div>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="foot-grid">
+    <div><h4>さくっとPDF</h4><div class="foot-links"><a href="#how">使い方</a><a href="#features">できること</a><a href="#formats">対応形式</a><a href="#faq">よくある質問</a><a href="#changelog">更新履歴</a><a href="#support">サポート</a><a href="privacy.html">プライバシーポリシー</a><a href="https://github.com/mojosoftjp/sakutto-pdf">GitHub</a></div></div>
+    <div><h4>さくっとシリーズ</h4><div class="foot-links"><a href="https://mojosoftjp.github.io/sakutto-videotranslator/">さくっと動画翻訳</a><a href="https://mojosoftjp.github.io/sakutto-imageconverter/">さくっと画像変換</a><a href="https://mojosoftjp.github.io/sakutto-videoconverter/">さくっと動画変換</a><a href="https://mojosoftjp.github.io/sakutto-audioconverter/">さくっと音声変換</a><a href="https://mojosoftjp.github.io/">Mojosoft のアプリ一覧</a></div></div>
+  </div>
+  <p class="copyright">&copy; 2026 Mojosoft. All rights reserved.</p>
+</div></footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-main" href="https://apps.microsoft.com/detail/9P1GW699TK0N?cid=lp-index">Microsoft Store で入手</a>
+</div>
 </body>
 </html>
